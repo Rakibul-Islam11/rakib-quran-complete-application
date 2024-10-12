@@ -116,3 +116,70 @@ catchRadioBTN.addEventListener('click', function () {
     }
     isPlaying = !isPlaying;
 });
+// tv start
+//for tv start
+let catchTv = document.getElementById("forTv");
+const modal = document.getElementById('my_modal_3');
+const videoPlayer = document.getElementById('videoPlayer');
+const m3u8Url = 'https://dzkyvlfyge.erbvr.com/PeaceTvBangla/index.m3u8';
+
+function tvFunc() {
+    if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(m3u8Url);
+        hls.attachMedia(videoPlayer);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            videoPlayer.play(); // Automatically play the video when the manifest is parsed
+        });
+    } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+        videoPlayer.src = m3u8Url;
+        videoPlayer.addEventListener('loadedmetadata', function () {
+            videoPlayer.play(); // Automatically play the video when metadata is loaded
+        });
+    } else {
+        alert('Your browser does not support HLS streaming.');
+    }
+}
+
+catchTv.addEventListener("click", function () {
+    tvFunc(); // Call the function to play the video
+});
+
+modal.addEventListener("close", function () {
+    videoPlayer.pause(); // Pause the video when the modal is closed
+});
+
+
+
+// tv two
+
+const catchTvTwo = document.getElementById("forTvTwo");
+const catchvideoPlaTwo = document.getElementById("videoPlayerTwo");
+const catchModalTwo = document.getElementById("my_modal_4");
+const m3u8UrlTwo = 'https://media2.streambrothers.com:1936/8122/8122/playlist.m3u8';
+
+function tvFuncTwo() {
+    if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(m3u8UrlTwo);
+        hls.attachMedia(catchvideoPlaTwo);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            catchvideoPlaTwo.play(); // Automatically play the video when the manifest is parsed
+        });
+    } else if (catchvideoPlaTwo.canPlayType('application/vnd.apple.mpegurl')) {
+        catchvideoPlaTwo.src = m3u8UrlTwo;
+        catchvideoPlaTwo.addEventListener('loadedmetadata', function () {
+            catchvideoPlaTwo.play(); // Automatically play the video when metadata is loaded
+        });
+    } else {
+        alert('Your browser does not support HLS streaming.');
+    }
+}
+
+catchTvTwo.addEventListener("click", function () {
+    tvFuncTwo(); // Call the function to play the video
+});
+
+catchModalTwo.addEventListener("close", function () {
+    catchvideoPlaTwo.pause(); // Pause the video when the modal is closed
+});
