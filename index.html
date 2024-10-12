@@ -1,69 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="tailwind.css">
-        <link rel="stylesheet" href="custom.css">
+        <link rel="stylesheet" href="tailwind.css" />
+        <link rel="stylesheet" href="custom.css" />
     </head>
     <body>
-        <!--navbar start-->
-        <nav class="nav_cus flex justify-center">
-            <ul class="menu bg-white lg:menu-horizontal rounded-box w-3/4 flex justify-between">
-                <li>
-                    <a href=""><img class="w-40" src="images/Screenshot_4.png" alt=""></a>
-                </li>
+        <section class="main">
+            <!--navbar start-->
+            <nav class="nav_cus flex justify-center pt-7">
+                <ul class="menu bg-white lg:menu-horizontal rounded-box w-3/4 flex justify-between">
+                    <li>
+                        <a href=""><img class="w-40" src="images/Screenshot_4.png" alt="" /></a>
+                    </li>
 
-                <div class="flex gap-4 me-3">
-                    <li>
-                        <button
-                            class="relative px-3 py-2 border border-red-500 text-red-500 font-semibold rounded-lg flex items-center space-x-2 transform transition-transform duration-300 hover:scale-110 focus:outline-none hover:border-red-500 hover:bg-red-500 hover:text-white gap-0">
-                            <!-- Blinking Green Dot -->
-                            <span id="playPauseBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-                                ▶ Play
-                            </span>
-                            <span class="font-bold text-lg">Litchen live radio</span>
-                            
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            class="relative px-3 py-2 border border-red-500 text-red-500 font-semibold rounded-lg flex items-center space-x-2 transform transition-transform duration-300 hover:scale-110 focus:outline-none hover:border-red-500 hover:bg-red-500 hover:text-white gap-0">
-                            <!-- Blinking Green Dot -->
-                            <span class="h-3 w-3 bg-red-600 rounded-full animate-blink"></span>
-                            <span class="font-bold text-lg">Peace tv live</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            class="relative px-3 py-2 border border-red-500 text-red-500 font-semibold rounded-lg flex items-center space-x-2 transform transition-transform duration-300 hover:scale-110 focus:outline-none hover:border-red-500 gap-0 hover:bg-red-500 hover:text-white">
-                            <!-- Blinking Green Dot -->
-                            <span class="h-3 w-3 bg-red-600 rounded-full animate-blink"></span>
-                            <span class="font-bold text-lg ">Mecca tv live</span>
-                        </button>
-                    </li>
-                    <audio id="myAudio" src="Tomay_Chaowar_Golpo-Tahsin_Ahmed-Web_Film-Mon_Mondire_FusionBD.Com.mp3"></audio>
-                </div>
-            </ul>
-        </nav>
-        <!--navbar end-->
-        <script>
-            const playPauseBtn = document.getElementById("playPauseBtn");
-            const myAudio = document.getElementById("myAudio");
-            let isPlaying = false;
+                    <div class="flex gap-4 me-3">
+                        <li>
+                            <button id="radioBTN"
+                                class="relative w-68 h-12 px-3 py-2 border border-red-500 text-red-500 font-semibold rounded-lg flex items-center space-x-2 transform transition-transform duration-300 hover:scale-110 focus:outline-none hover:border-red-500 hover:bg-red-500 hover:text-white gap-0 overflow-hidden">
+                                <span id="playPauseBtn"
+                                    class="w-28 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+                                    ▶Play
+                                </span>
+                                <span id="radioText" class="font-bold text-lg whitespace-nowrap w-full">listen live
+                                    radio</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class="relative px-3 py-2 border border-red-500 text-red-500 font-semibold rounded-lg flex items-center space-x-2 transform transition-transform duration-300 hover:scale-110 focus:outline-none hover:border-red-500 hover:bg-red-500 hover:text-white gap-0">
+                                <span class="h-3 w-3 bg-red-600 rounded-full animate-blink"></span>
+                                <span class="font-bold text-lg">Peace tv live</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class="relative px-3 py-2 border border-red-500 text-red-500 font-semibold rounded-lg flex items-center space-x-2 transform transition-transform duration-300 hover:scale-110 focus:outline-none hover:border-red-500 gap-0 hover:bg-red-500 hover:text-white">
+                                <span class="h-3 w-3 bg-red-600 rounded-full animate-blink"></span>
+                                <span class="font-bold text-lg">Mecca tv live</span>
+                            </button>
+                        </li>
+                        <!--audio engine start-->
+                        <div id="radioEngin"></div>
+                        <!--audio engine end-->
+                    </div>
+                </ul>
+            </nav>
+            <!--navbar end-->
+            <!-- text show start -->
 
-            playPauseBtn.addEventListener("click", function () {
-                if (isPlaying) {
-                    myAudio.pause();
-                    playPauseBtn.textContent = "▶ Play";
-                } else {
-                    myAudio.play();
-                    playPauseBtn.textContent = "⏸ Pause";
-                }
-                isPlaying = !isPlaying;
-            });
-        </script>
+<!-- text show start -->
+<span class="glowing-text text-3xl font-bold text-white flex justify-center pt-4">
+    ✨ Search the surah by number and listen with bangla tafsir! ✨
+</span>
+
+
+            <!-- searchbox with button start -->
+            <div class="search_bar_main pt-4">
+
+            <div class="flex items-center w-full max-w-md mx-auto border border-gray-300 rounded-full shadow-md overflow-hidden">
+                <input type="text" placeholder="Search the surah by number..."
+                    class="w-full px-4 py-2 bg-gray-100 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 border border-red-500 transition duration-200 ease-in-out rounded-l-full" />
+                <button
+                    class="bg-red-500 hover:bg-red-600 text-white font-bold px-5 py-2 transition-transform transform hover:scale-105 duration-300 rounded-r-full border border-red-500">
+                    Search
+                </button>
+            </div>
+            </div>
+            <!-- searchbox with button end -->
+        </section>
+
+        <script src="script.js"></script>
     </body>
 
 </html>
