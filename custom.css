@@ -9,7 +9,6 @@
     background-size: cover;
 }
 
-
 @keyframes marquee {
     0% {
         transform: translateX(100%);
@@ -93,6 +92,34 @@
     }
 }
 
-.glowing-text {
+.glowing_text {
     animation: glow 1.5s infinite alternate;
+}
+
+/* responsive start  */
+@media only screen and (min-width:450px) and (max-width:1099px) {
+    .ul_cus {
+        width: 605px !important;
+    }
+}
+
+@media only screen and (min-width:530px) and (max-width:1023px) {
+    #radioBTN {
+        width: 208px !important;
+        height: 39px !important;
+    }
+
+    
+}
+
+@media only screen and (min-width:644px) and (max-width:996px) {
+.ul_cus {
+        width: 522px;
+    }
+}
+
+@media only screen and (max-width: 913px) {
+    .glowing-text {
+        font-size: 100px !important;
+    }
 }
